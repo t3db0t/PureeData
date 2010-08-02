@@ -1,4 +1,4 @@
-PureéData is a browser-based PureData interface for a remote, central server that allows live, collaborative patching for anyone, anywhere.
+PuréeData is a browser-based PureData interface for a remote, central server that allows live, collaborative patching for anyone, anywhere.
 
 Using Pd's internal messaging system and an accompanying python script, PureéData allows anyone with a browser to modify a public, shared patch running on a server and listen to the results over an OGG audio stream.
 

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html>
+	<head>
+		<title>PuréeData</title>
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script>
+		<link type="text/css" href="css/eggplant/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
+		
+		<style type="text/css">
+			.draggable { /* width: 100px; height: 30px; padding: 0.5em; */}
+			.pdObject {
+				width: 100px;
+				height:15px;
+				padding: 8px;
+				background-color: #eeeeee;
+				border: 1px solid #000;
+				font-family: Arial;
+				font-size: 14px;
+			}
+		</style>
+			
+		<script>
+			/*****
+				1. mirror current object list from server
+				2. instantiate existing objects
+				3. register buttons
+			******/
+			
+			
+				
+		</script>
+	</head>
+	<body>
+	</body>
+	<script>
+		for(i=0; i<10; i++){
+			div = $("<div>").addClass("draggable pdObject ui-corner-all").html("Object #"+i);
+			$("body").append(div);
+		}
+		$(function() {
+			$(".draggable").draggable();
+			//$("button").button();
+		});
+	</script>
+</html>
