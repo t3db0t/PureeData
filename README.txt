@@ -4,4 +4,6 @@ Using Pd's internal messaging system and an accompanying python script, PureéDa
 
 The project is freely available for forking on GitHub.  PureéData is in part adapted from code by Jeraman.
 
-PureéData 2010 Ted Hayes & Sofy Yuditskaya
+PuréeData is a 2011 commission of New Radio and Performing Arts, Inc. (a.k.a Ether-Ore) for its Turbulence web site (http://www.turbulence.org).  It was made possible with funding from the Jerome Foundation.
+
+PureéData 2010/2011 Ted Hayes & Sofy Yuditskaya
