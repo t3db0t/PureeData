@@ -14,6 +14,9 @@
 	</head>
 	<body>
 		<div id='toolsContainer'>
+			<div id="logo"class="ui-corner-all">
+				<img src="/static/images/blender_logo.png" width="127" height="127"/>
+			</div>
 			<div id="addObj">
 				<!-- Add Object: -->
 				<input id="addObjField" class="ui-corner-all customInput" type="text" name="obj" value="Add Object" onfocus="if (this.value == this.defaultValue) this.value='';" onblur="if (this.value == '') this.value=this.defaultValue;" onKeyPress="return submitEnter(this,event);" onkeyup="tagFieldChange(this.value);"/>
@@ -24,27 +27,36 @@
 				<input id="addMsgField" class="ui-corner-all customInput" type="text" name="msg" value="Add Message" onfocus="if (this.value == this.defaultValue) this.value='';" onblur="if (this.value == '') this.value=this.defaultValue;" onKeyPress="return submitEnter(this,event);" onkeyup="tagFieldChange(this.value);"/>
 				<!-- <a href="javascript:msgSubmit()">submit</a> -->
 			</div>
-			<input type="checkbox" id="disconnectCB" /><label for="disconnectCB" style="width: 127px; font-size: 11px; margin-top: 2px;">Disconnect Wires</label>
+			<input type="checkbox" id="disconnectCB" /><label class="helpButton" for="disconnectCB" style="">Disconnect Wires</label>
+			<button id='listenButton' class="helpButton">
+				Listen
+			</button>
+			<div id='infoline'>information</div>
+			<div id='infoContainer'>
+				<button id='infoButton' class="helpButton">
+					What is PuréeData?
+				</button>
+				<button id='helpButton' class="helpButton">
+					Help!
+				</button>
+				<button id='creditsButton' class="helpButton">
+					Credits
+				</button>
+				<!-- <button id='examplesButton'>
+					Examples
+				</button> -->
+				
+			</div>
 		</div>
 		<!--           <a href="javascript:getCurrentObjectList()">Update GUI</a> |  -->
 		<!-- <a href="javascript:clearPatch()">Clear Patch</a> -->
 		<!--           <input type="checkbox" id="dspCheckbox" /><label for="dspCheckbox">DSP</label> -->
-		<div id='infoContainer'>
-			<button id='infoButton'>
-				What is PuréeData?
-			</button>
-			<!-- <button id='examplesButton'>
-				Examples
-			</button> -->
-			<button id='listenButton'>
-				Listen
-			</button>
-		</div>
+		
 		<!-- <div id="traceBox"><strong>Trace</strong><br/></div> -->
-		<div id='infoBox'>
+		<div id='infoBox' class="infoBox">
 			<h1>Welcome to PuréeData!</h1>
 			PuréeData is a net-art experiment that implements a web interface to an instance of <a target="_blank" href="http://puredata.info">PureData</a>,
-			a dataflow audio programming environment.  To hear the sound output, listen to <a target="_blank" href="http://pureedata.net:8000/pureedata.mp3">this MP3 stream</a> with your favorite audio application.
+			a dataflow audio programming environment.  To hear the sound output, listen to <a target="_blank" href="http://pureedata.net/static/pureedata.pls">this MP3 stream</a> with your favorite audio application.
 			<br/>
 			<br/>
 			Ready to dive in?  Check out the <a target="_blank" href="http://github.com/virgildisgr4ce/PureeData/wiki/Supported-Objects">list of supported objects</a> and <a target="_blank" href="http://en.flossmanuals.net/pure-data/">some helpful PureData tutorials</a>!  For technical information, check out <a target="_blank" href="http://github.com/virgildisgr4ce/PureeData/wiki/How-does-Pur%C3%A9eData-work%3F">How PuréeData works</a>.
@@ -57,6 +69,29 @@
 			<div class="highlightBox ui-widget-header ui-corner-all">
 				<strong>PuréeData</strong> is a 2011 commission of New Radio and Performing Arts, Inc. (a.k.a Ether-Ore) for its Turbulence web site.  It was made possible with funding from the Jerome Foundation. <a href="http://turbulence.org/">&laquo; Back to Turbulence.org</a>
 			</div>
+		</div>
+		<div id='creditsBox' class="infoBox">
+			PuréeData was dreamed up by <a href="http://log.liminastudio.com">Ted Hayes</a> and <a href="http://yuditskaya.com/">Sofy Yuditskaya</a> in 2010, and implemented from then to now by Ted with the indispensable aid of the <a href="http://code.google.com/p/pyata/">Pyata library</a>.
+			<br/><br/>
+			Ted Hayes is a poet-inventor: conceiving objects and experiences that explore the sublime and the enigmatic through recombination and deconstruction.  He is a proponent of what he has dubbed “Research Art,” or art as science experiment, and actively investigates the themes, technologies and ramifications of autonomy, emergence, semiotics, pattern recognition, and neural networks.
+			<br/><br/>
+			Ted’s works range from a group of language-inventing robots to a mythological city-founding ritual for soprano and string quartet, is a graduate of NYU’s Interactive Telecommunications Program, and is recently the recipient of a New Radio and Performing Arts commission.  His operating principle is, in a word, poetry: to pique with enigma and confound with beauty.  See more of Ted’s work at <a href="http://log.liminastudio.com">http://log.liminastudio.com</a>.
+			<br/><br/>
+			<div class="highlightBox ui-widget-header ui-corner-all">
+				<strong>PuréeData</strong> is a 2011 commission of New Radio and Performing Arts, Inc. (a.k.a Ether-Ore) for its Turbulence web site.  It was made possible with funding from the Jerome Foundation. <a href="http://turbulence.org/">&laquo; Back to Turbulence.org</a>
+			</div>
+		</div>
+		<div id='helpBox' class="infoBox">
+			What on earth do I do with this thing?
+			<ul>
+				<li>PuréeData is a "dataflow patching environment," which means you connect boxes together to generate a flow of information and audio signals.</li>
+				<li>To get started, try making a new object, such as "osc~ 440", which generates a sine wave at 440hz.  This can then be connected, or "patched," to other objects that accept signal inputs, such as the main outputs, "send~ left" and "send~ right".</li>
+				<li>Connections between objects and messages can be made by clicking on an outlet of one object and then clicking on an inlet of another object.</li>
+				<li>Connections can be deleted by checking the "Disconnect Wires" toggle button and then clicking on the connections you want to remove.</li>
+				<li>To hear the audio output of the patch, click on the "Listen" button.  This is an MP3 audio stream that is typically about 5 seconds behind "real-time," so you won't hear your changes immediately.</li>
+				<li>The square boxes are "messages," which can be clicked on to send their information to another object.  For instance, sending "300" to the second inlet of a "metro" object will change the metronome's rate to 300ms.</li>
+				<li>For more in-depth tutorials on dataflow and audio synthesis, check out <a target="_blank" href="http://en.flossmanuals.net/pure-data/">these helpful PureData tutorials</a>!</li>
+			</ul>
 		</div>
 	</body>
 </html>

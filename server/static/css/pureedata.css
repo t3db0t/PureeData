@@ -40,10 +40,10 @@
 .line {
 	position: absolute;
 /*	width: 200px;*/
-	height: 1px;
+	height: 2px;
  	border: 0px;
- 	background-color: black;
- 	cursor: pointer;
+ 	background-color: #222;
+ 	cursor: default;	/* changed dynamically */
 }
 .objDelete {
 	font-size: 8px;
@@ -63,6 +63,15 @@
 	padding: 3px;
 	color: #111;
 }
+.helpButton {
+	width: 127px;
+	font-size: 11px;
+	margin-top: 2px;
+}
+.specialObject {
+	background: #333;
+	color: #eee;
+}
 #traceBox {
 	position:		fixed;
 	top:			5px;
@@ -71,21 +80,28 @@
 	font-family: 	Arial;
 	font-size: 		smaller;
 }
-#dspCheckbox {
-	width: 30px;
-	height: 15px;
-}
 #disconnectCB {
-	width: 30px;
-	height: 15px;
+	
 }
 #infoBox {
+	/*font-size: 12px;*/
+}
+.infoBox {
 	font-size: 12px;
 }
+#infoline {
+	font-family: Arial, Helvetica, sans-serif;
+	font-variant: small-caps;
+	font-size: 11px;
+	text-align: center;
+}
 #infoContainer {
-	position: absolute;
-	bottom: 8px;
+/*	position: absolute;*/
+/*	bottom: 8px;*/
 }
 #toolsContainer {
-	
+	position: fixed;
+	top: 8px;
+	right: 8px;
+	width: 127px;
 }

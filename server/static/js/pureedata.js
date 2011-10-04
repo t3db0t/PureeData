@@ -35,6 +35,10 @@ function msgSubmit(){
     addMsg($('#addMsgField').val());
 }
 
+function errorAnimation(what){
+	what.effect("highlight", {color:'#9E1616'}, 2000);
+}
+
 function addObj(what) {
 	//trace("addObj: "+what);
 	var objStem = what.split(' ')[0];
@@ -54,31 +58,34 @@ function addObj(what) {
 	        },
 	        error: function (result) {
 	          trace("addObj error: "+result);
+	          errorAnimation($('#addObjField'));
 	        }
 	    });
 	} else {
 		// TODO: show error message
+		errorAnimation($('#addObjField'));
+		$('#addObjField').val('Add Object');
 	}
 }
 
-function addMsg(what) {              
-    $.ajax({
-        type: "POST",
-        url: host+"pd",
-        data: {
-			cmd: 'msg',
-			msg: what,
-			x: 50,
-			y: 50
+function addMsg(what) {
+	$.ajax({
+		type : "POST",
+		url : host + "pd",
+		data : {
+			cmd : 'msg',
+			msg : what,
+			x : 50,
+			y : 50
 		},
-        success: function (result) {
-          //trace("addMsg success: "+result);
-          makeNewObject(jQuery.parseJSON(result)[0]);
-        },
-        error: function (result) {
-          trace("addMsg error: "+result);
-        }
-    });
+		success : function(result) {
+			makeNewObject(jQuery.parseJSON(result)[0]);
+		},
+		error : function(result) {
+			trace("addMsg error: " + result);
+		}
+	});
+	$('#addObjField').val('Add Message');
 }
 
 function clearPatch() {
@@ -139,16 +146,29 @@ function makeNewObject(obj){
 		numInlets = 1;
 		numOutlets = 1;
 	}
+	var special = false;
+	if(obj.content == "send~ left" || obj.content == "send~ right"){
+		// special!
+		special = true;
+	}
 	
-	var deleteButton = $(obj_del_html)
-		.click(deleteClick);	
+	// var deleteButton = $(obj_del_html)
+		// .click(deleteClick);	
 	
     theObj = $(which_html)
         .attr('id', obj.id)
         .html(obj.content)
         .css({'left':obj.x+'px', 'top':obj.y+'px'})
-        .append(deleteButton)
+        //.append(deleteButton)
         .hover(objectOver, objectOut);
+    
+    if(!special){
+    	// Disabled until backend deleting works
+    	//theObj.append(deleteButton);
+    } else {
+    	// apply special class
+    	theObj.addClass('specialObject');
+    }
     
     var i = 0;
     var l = 0;
@@ -485,22 +505,60 @@ function submitEnter(field, e) {
 	}
 }
 
+function tagFieldChange(val){
+	if(val.length > 0 && val != "Click here to add tags"){
+		
+	} else {
+
+	}
+}
+
+function disconnectClick(e){
+	if($('#disconnectCB').is(':checked')){
+		$('.line').css({
+			'cursor':'pointer'
+		});
+	} else {
+		$('.line').css({
+			'cursor':'default'
+		});
+	}
+}
 
 $(function() {
 	//// MAIN ////
     //$("#dspCheckbox").button().click(dspClick);
     $('#infoBox').dialog({
     	modal	: true,
-    	title	: 'Welcome!',
+    	title	: 'About PuréeData',
     	width	: 600
+    });
+    $('#creditsBox').dialog({
+    	autoOpen: false,
+    	modal	: true,
+    	title	: 'Credits',
+    	width	: 600
+    });
+    $('#helpBox').dialog({
+    	autoOpen: false,
+    	//modal	: true,
+    	title	: 'Help!',
+    	width	: 600
+    });
+    $('#creditsButton').button().click(function(){
+    	$('#creditsBox').dialog('open');
+    });
+    $('#helpButton').button().click(function(){
+    	$('#helpBox').dialog('open');
     });
     $('#infoButton').button().click(function(){
     	$('#infoBox').dialog('open');
     });
     $('#listenButton').button().click(function(){
-    	window.open('http://pureedata.net:8000/pureedata.mp3');
+    	//window.open('http://pureedata.net:8000/pureedata.mp3', '_blank');
+    	window.open('http://pureedata.net/static/pureedata.pls', '_blank');
     });
-    $("#disconnectCB").button();
+    $("#disconnectCB").button().click(disconnectClick);
 	//clearPatch();
 	getCurrentObjectList();
 	//updateGUI();
