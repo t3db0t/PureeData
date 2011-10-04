@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/91/trunk/pyata/src/aux_patches
+END
+server.pd
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/91/trunk/pyata/src/aux_patches/server.pd
+END
+sym.pd
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/51/trunk/pyata/src/aux_patches/sym.pd
+END
+nmb.pd
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/51/trunk/pyata/src/aux_patches/nmb.pd
+END
+id.pd
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/51/trunk/pyata/src/aux_patches/id.pd
+END

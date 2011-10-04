@@ -1,0 +1,91 @@
+.draggable {
+	cursor:default;
+}
+.pdObject {
+	position:fixed;
+	width: 75px;
+	height:15px;
+	padding-top: 2px;
+	padding-left: 4px;
+	background-color: #eeeeee;
+	border: 1px solid #000;
+	font-family: Arial;
+	font-size: 12px;
+	cursor:default;
+}
+.pdMessage {
+	background-color: #dddddd;
+	cursor: pointer;
+}
+/* iolets default to control (unfilled) */
+.iolet {
+	position: absolute;
+	z-index: 100;
+	width:10px;
+	height:2px;
+	background-color: #eeeeee;
+	border: 1px solid #000;
+}
+.inlet {
+	top:-2px;
+}
+.outlet {
+	bottom:-2px;
+	cursor:pointer;
+}
+.filled {
+	/* for signal iolets */
+	background-color: #999999;
+}
+.line {
+	position: absolute;
+/*	width: 200px;*/
+	height: 1px;
+ 	border: 0px;
+ 	background-color: black;
+ 	cursor: pointer;
+}
+.objDelete {
+	font-size: 8px;
+	display: none;
+	right: 5px;
+	top: 2px;
+	position: absolute;
+	cursor: pointer;
+}
+.highlightBox {
+	padding: 8px;
+	font-size: 14px;
+	background: #70273A;
+}
+.customInput {
+	border: 1px solid #AAA;
+	padding: 3px;
+	color: #111;
+}
+#traceBox {
+	position:		fixed;
+	top:			5px;
+	right:			5px;
+	text-align:		right;
+	font-family: 	Arial;
+	font-size: 		smaller;
+}
+#dspCheckbox {
+	width: 30px;
+	height: 15px;
+}
+#disconnectCB {
+	width: 30px;
+	height: 15px;
+}
+#infoBox {
+	font-size: 12px;
+}
+#infoContainer {
+	position: absolute;
+	bottom: 8px;
+}
+#toolsContainer {
+	
+}

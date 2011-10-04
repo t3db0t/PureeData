@@ -1,0 +1,13 @@
+#N canvas 628 183 366 260 10;
+#X floatatom 100 100 5 0 0 0 - - -;
+#X obj 99 44 inlet;
+#X obj 192 116 pack f f;
+#X obj 192 52 id;
+#X obj 192 155 send pyata;
+#X obj 100 154 outlet;
+#X connect 0 0 2 0;
+#X connect 0 0 5 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 1;
+#X coords 0 -1 1 1 32 17 1 100 100;
