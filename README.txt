@@ -2,6 +2,17 @@ PuréeData is a browser-based PureData interface for a remote, central server th
 
 Using Pd's internal messaging system and an accompanying python script, PureéData allows anyone with a browser to modify a public, shared patch running on a server and listen to the results over an internet audio stream.
 
+### Installation
+
+1. Clone into your server
+2. Install Pd-extended (i.e. for Ubuntu): http://puredata.info/docs/faq/debian
+3. Install web.py: `pip install web.py`
+4. Change all occurrences of /var/www... to the location of the repo (sorry, this should be set up better)
+5. Install icecast: `apt-get install icecast2`
+6. Configure icecast: TODO
+
+### Info
+
 The project is freely available for forking on GitHub.  PureéData is in part adapted from code by Jeraman.
 
 PuréeData is a 2011 commission of New Radio and Performing Arts, Inc. (a.k.a Ether-Ore) for its Turbulence web site (http://www.turbulence.org).  It was made possible with funding from the Jerome Foundation.
